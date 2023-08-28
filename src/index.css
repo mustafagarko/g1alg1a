@@ -1,13 +1,74 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --index: calc(1vw + 1vh);
+  --transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: kamerik-3d;
+  overflow: hidden;
+}
+
+.layers {
+  perspective: 800px;
+}
+
+.layers__container {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+  will-change: transform;
+  transition: transform var(--transition);
+}
+
+.layers__item {
+  position: absolute;
+  inset: -5;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layer-1 {
+  transform: translateZ(-55px) scale(1.6);
+}
+/* .layer-2 {
+  transform: translateZ() scale();
+} */
+
+.layer-3 {
+  transform: translateZ(50px) scale(1);
+}
+
+.layer-4 {
+  transform: translateZ(165px) scale(1);
+}
+
+.layer-5 {
+  transform: translateZ(380px);
+}
+
+.hero-content {
+  font-size: calc(var(--index) * 4);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: calc(var(--index) * -0.15);
+}
+
+.hero-content span {
+  display: block;
 }
