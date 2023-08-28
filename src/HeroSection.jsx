@@ -2,6 +2,7 @@ import bg from "../src/assets/bg1.jpeg";
 import tower from "../src/assets/tower.png";
 import tower2 from "../src/assets/tower2.png";
 import cloud1 from "../src/assets/cloud1.png";
+import { motion } from "framer-motion";
 
 function HeroSection() {
   document.addEventListener(`mousemove`, (e) => {
@@ -19,11 +20,19 @@ function HeroSection() {
           <img src={bg} />
         </div>
         <div className="layers__item layer-2">
-          <div className="hero-content">
+          <motion.div
+            className="hero-content"
+            initial={{ y: "100vh" }}
+            animate={{ y: "0vw" }}
+            transition={{
+              ease: "easeInOut",
+              duration: 4,
+            }}
+          >
             <h1>
               Г1алг1ай<span> мохк</span>
             </h1>
-          </div>
+          </motion.div>
         </div>
 
         <div className="layers__item layer-3 right-[-5vw]">
